@@ -1,14 +1,7 @@
-use rust_aoj::io::value_reader::ValueReader;
-use rust_aoj::io::value_writer::ValueWriter;
+use crate::io::value_reader::ValueReader;
+use crate::io::value_writer::ValueWriter;
 
-fn main() {
-    let reader = ValueReader::new(Box::new(std::io::stdin()));
-    let writer = ValueWriter::new(Box::new(std::io::stdout()));
-
-    sieve(reader, writer);
-}
-
-pub fn sieve(mut reader: ValueReader, mut writer: ValueWriter) {
+pub fn solve<R: ValueReader, W: ValueWriter>(mut reader: R, mut writer: W) {
     loop {
         let end: i32 = match reader.read() {
             Some(end) => end,
